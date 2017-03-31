@@ -64,6 +64,25 @@ public class Deck<T> implements Deque<T>{
 		return -1;
 	}
 	
+	public void removeFirst(T q){
+		int x = this.atIndex(q);
+		if(x != -1){
+			queue.remove(x);
+			size--;
+		}
+	}
+	
+	public void removeLast(T q){
+		for(int w = size-1; w > -1; w--){
+			if(queue.get(w).equals(q)){
+				queue.remove(w);
+				size--;
+				break;
+			}
+		}
+		
+	}
+	
 	public T pollFront(){
 		if(size == 0){
 			return null;
@@ -82,6 +101,14 @@ public class Deck<T> implements Deque<T>{
 		}
 	}
 
+	public String toString(){
+		String q = "";
+		for(T w : queue){
+			q+= w + ", ";
+		}
+		return q;
+	}
+	
     public static void main (String[] args){
 		Deck q = new Deck();
 		q.addFront("w");
@@ -89,13 +116,22 @@ public class Deck<T> implements Deque<T>{
 		q.addFront("r");
 		q.addEnd("T");
 		q.addEnd("y");
+		q.addEnd("w");
+		q.addEnd("e");
 		
 		System.out.println(q.size());
 		
+		System.out.println(q);
+		q.removeFirst("w");
+		System.out.println(q);
+		q.removeLast("e");
+		
+		System.out.println(q);
+		/*
 		System.out.println(q.atIndex("v"));
 		System.out.println(q.atIndex("w"));
 		
-/*		System.out.println(q.contains("v"));
+		System.out.println(q.contains("v"));
 		System.out.println(q.contains("w"));
 		
 		System.out.println(q.removeFront() + "...r");

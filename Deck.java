@@ -71,6 +71,7 @@ public class Deck<T> implements Deque<T>{
 		System.out.println(q.removeEnd() + "...w");
 		System.out.println(q.removeFront() + "...e");
 		System.out.println(q.size());
+		System.out.println(q.removeFront());
     }
     
 }

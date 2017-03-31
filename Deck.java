@@ -4,11 +4,19 @@ public class Deck<T> implements Deque<T>{
 
     private ArrayList<T> queue;
     private int size;
+	private int maxSize;
 
     public Deck(){
 	size = 0;
 	queue = new ArrayList<T>();
+	maxSize = -1;
     }
+	
+	public Deck(int max){
+		size = 0;
+		queue = new ArrayList<T>();
+		maxSize = max;
+	}
     
     public T peekFront(){
 	return queue.get(0);
@@ -19,13 +27,17 @@ public class Deck<T> implements Deque<T>{
     }
 
     public void addFront(T q){
+		if(maxSize==-1 || maxSize>size){
 		queue.add(0, q);
 		size++;
+		}
     }
 
     public void addEnd(T q){
+		if(maxSize==-1 || maxSize>size){
 		queue.add(q);
 		size++;
+		}
     }
 
     public T removeFront(){
@@ -110,7 +122,21 @@ public class Deck<T> implements Deque<T>{
 	}
 	
     public static void main (String[] args){
-		Deck q = new Deck();
+		
+		Deck w = new Deck(5);
+		w.addFront(2);
+		w.addFront(4);
+		w.addEnd(5);
+		w.addEnd(7);
+		w.addEnd(8);
+		System.out.println(w);
+		
+		w.addFront(1);
+		System.out.println(w);
+		w.addEnd(0);
+		System.out.println(w);
+		
+/*		Deck q = new Deck();
 		q.addFront("w");
 		q.addFront("e");
 		q.addFront("r");
@@ -127,7 +153,7 @@ public class Deck<T> implements Deque<T>{
 		q.removeLast("e");
 		
 		System.out.println(q);
-		/*
+		
 		System.out.println(q.atIndex("v"));
 		System.out.println(q.atIndex("w"));
 		

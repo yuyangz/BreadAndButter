@@ -2,8 +2,8 @@ public interface Deque<T>{
     public T peekFront();
     public T peekEnd();
     
-    public void addFront();
-    public void addEnd();
+    public void addFront( T q);
+    public void addEnd(T q);
     
     public T removeFront();
     public T removeEnd();

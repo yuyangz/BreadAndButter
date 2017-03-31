@@ -55,6 +55,15 @@ public class Deck<T> implements Deque<T>{
 		return false;
     }
 	
+	public int atIndex(T q){
+		for(int w = 0; w < size; w++){
+			if(queue.get(w).equals(q)){
+				return w;
+			}
+		}
+		return -1;
+	}
+	
 	public T pollFront(){
 		if(size == 0){
 			return null;
@@ -83,6 +92,12 @@ public class Deck<T> implements Deque<T>{
 		
 		System.out.println(q.size());
 		
+		System.out.println(q.atIndex("v"));
+		System.out.println(q.atIndex("w"));
+		
+/*		System.out.println(q.contains("v"));
+		System.out.println(q.contains("w"));
+		
 		System.out.println(q.removeFront() + "...r");
 		System.out.println(q.removeEnd() + "...y");
 		System.out.println(q.removeEnd() + "...T");
@@ -91,7 +106,7 @@ public class Deck<T> implements Deque<T>{
 		System.out.println(q.size());
 
 		System.out.println(q.pollFront());
-		System.out.println(q.pollEnd());
+		System.out.println(q.pollEnd());*/
     }
     
 }

@@ -54,6 +54,24 @@ public class Deck<T> implements Deque<T>{
 		}
 		return false;
     }
+	
+	public T pollFront(){
+		if(size == 0){
+			return null;
+		}
+		else{
+			return this.removeFront();
+		}
+	}
+	
+	public T pollEnd(){
+		if(size == 0){
+			return null;
+		}
+		else{
+			return this.removeEnd();
+		}
+	}
 
     public static void main (String[] args){
 		Deck q = new Deck();
@@ -68,10 +86,12 @@ public class Deck<T> implements Deque<T>{
 		System.out.println(q.removeFront() + "...r");
 		System.out.println(q.removeEnd() + "...y");
 		System.out.println(q.removeEnd() + "...T");
-		System.out.println(q.removeEnd() + "...w");
-		System.out.println(q.removeFront() + "...e");
+		System.out.println(q.pollEnd() + "...w");
+		System.out.println(q.pollFront() + "...e");
 		System.out.println(q.size());
-		System.out.println(q.removeFront());
+
+		System.out.println(q.pollFront());
+		System.out.println(q.pollEnd());
     }
     
 }

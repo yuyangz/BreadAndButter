@@ -9,5 +9,5 @@ public interface Deque<T>{
     public T removeEnd();
 
     public int size();
-    public boolean contains();
+    public boolean contains(T x);
 }

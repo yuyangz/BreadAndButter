@@ -1,1 +1,3 @@
 # BreadAndButter
+## **METHOD SELECTIONS**
+We decided to include peekFront and peekFront as a way to see what items we have at each end. This way we may check for items before adding additional or removing items. We felt that the add and remove methods were quite necessary as we may want to change the deque. We also added a contains methods to check whether or not a certain item is already in the deque. If it is, it will return true. If not, it will return false. We also had an atIndex to check what certain indexes held. By placing the index into atIndex, it will return the value at that index. As for pollFirst and pollEnd, we decided to have these methods to show us what values we are removing. If the deque is not empty, it will remove the value and return it.

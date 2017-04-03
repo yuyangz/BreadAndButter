@@ -7,16 +7,28 @@ We initially decided on ArrayLists simply because of our familiarity with it. Ho
 
 ## **Runtimes**
 `peekFront()` : O(1)
+
 `peekEnd()` : O(1)
+
 `addFront()` : O(n)
+
 `addEnd()` : O(1)
+
 `removeFront()` : O(n)
+
 `removeEnd()` : O(1)
+
 `size()` : O(1)
+
 `contains()` : O(n)
+
 `atIndex()` : O(n)
+
 `removeFirst()` : O(n)
+
 `removeLast()` : O(n)
+
 `pollFront()` : O(n)
+
 `pollEnd()` : O(1)
 

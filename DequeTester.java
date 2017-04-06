@@ -79,18 +79,18 @@ public class DequeTester {
         System.out.println("d: " + d); //d: [b, z]
 
         System.out.println("\ntesting various accessor methods");
-        System.out.println("d.peekFirst(): " + d.peekFirst()); //d.peekFirst(): a
+        System.out.println("d.peekFirst(): " + d.peekFirst()); //d.peekFirst(): b
 	System.out.println("d.peekLast(): " + d.peekLast()); //d.peekLast(): z
 
         System.out.println("\ntesting size() and isEmpty()");
-        System.out.println("d: " + d); //d: [a, b, c, y, z]
-        System.out.println("d.size(): " + d.size()); //d.size(): 5
+        System.out.println("d: " + d); //d: [b, z]
+        System.out.println("d.size(): " + d.size()); //d.size(): 2
         System.out.println("d.isEmpty(): " + d.isEmpty()); //d.isEmpty(): false
 
-        System.out.println("\ntesting clear() and size() and isEmpty()");
-        System.out.println("d: " + d); //d: [a, b, c, y, z]
-        System.out.println("d.clear()");
-        d.clear();
+        System.out.println("\ntesting and size() and isEmpty()");
+        System.out.println("d: " + d); //d: [b, z]
+	System.out.println("d.removeLast(): " + d.removeLast()); //d.removeLast(): z
+	System.out.println("d.removeLast(): " + d.removeLast()); //d.removeLast(): b
         System.out.println("d: " + d); //d: []
         System.out.println("d.size(): " + d.size()); //d.size(): 0
         System.out.println("d.isEmpty(): " + d.isEmpty()); //d.isEmpty(): true

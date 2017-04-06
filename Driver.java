@@ -1,51 +1,67 @@
 public class Driver{
     public static void main (String[] args){
-		
-	Deck w = new Deck(5);
-	w.addFront(2);
-	w.addFront(4);
-	w.addEnd(5);
-	w.addEnd(7);
-	w.addEnd(8);
-	System.out.println(w);
-		
-	w.addFront(1);
-	System.out.println(w);
-	w.addEnd(0);
-	System.out.println(w);
-		
-	Deck q = new Deck();
-	q.addFront("w");
-	q.addFront("e");
-	q.addFront("r");
-	q.addEnd("T");
-	q.addEnd("y");
-	q.addEnd("w");
-	q.addEnd("e");
-		
-	System.out.println(q.size());
-		
-	System.out.println(q);
-	q.removeFirst("w");
-	System.out.println(q);
-	q.removeLast("e");
-		
-	System.out.println(q);
-		
-	System.out.println(q.atIndex("v"));
-	System.out.println(q.atIndex("w"));
-		
-	System.out.println(q.contains("v"));
-	System.out.println(q.contains("w"));
-		
-	System.out.println(q.removeFront() + "...r");
-	System.out.println(q.removeEnd() + "...y");
-	System.out.println(q.removeEnd() + "...T");
-	System.out.println(q.pollEnd() + "...w");
-	System.out.println(q.pollFront() + "...e");
-	System.out.println(q.size());
 
-	System.out.println(q.pollFront());
-	System.out.println(q.pollEnd());
+	Deck mine = new Deck(10);
+
+	//since there are no elements in the AL, nothing can be removed; error exception will be thrown
+	mine.removeLast();
+	System.out.println(mine);
+
+	//since there are no elements in the AL, nothing can be removed; error exception will be thrown
+	mine.removeFirst();
+	System.out.println(mine);
+
+	//handles error silently (\n)
+	mine.pollLast();
+	System.out.println(mine);
+
+	//at the end of these calls, 5 should be in the front
+	mine.addLast(5);
+	mine.addLast(6);
+	System.out.println(mine);
+
+	//at the end of these calls, 9 should be in the front
+	mine.addFirst(9);
+	System.out.println(mine);
+
+	//at the end of these calls, it should look the same because there are no 1's in the AL
+	mine.removeFirstOccurrence(1);
+	System.out.println(mine);
+
+	//should print 9
+	System.out.println(mine.peekFirst());
+
+	//should print 6
+	System.out.println(mine.peekLast());
+
+	//at the end of these calls, the 9 should be gone
+	mine.removeFirst();
+	System.out.println(mine);
+
+	mine.addLast(9);
+	mine.addLast(9);
+	mine.addLast(7);
+	mine.addLast(9);
+	mine.addLast(9);
+	mine.addLast(9);
+	System.out.println(mine);
+
+	//at the end of these test calls, there should only be two 9s after the 7
+	mine.removeLastOccurrence(9);
+	System.out.println(mine);
+
+	//should return 7
+	System.out.println(mine.size());
+
+	//should print true
+	System.out.println(mine.contains(9));
+
+	//5 at front should be gone
+	mine.pollFirst();
+	System.out.println(mine);
+
+	//should print 1
+	System.out.println(mine.atIndex(9));
+	
     }
 }

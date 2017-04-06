@@ -18,40 +18,50 @@ public class Deck<T> implements Deque<T>{
 	maxSize = max;
     }
     
-    public T peekFront(){
+    public T peekFirst(){
 	return queue.get(0);
     }
 
-    public T peekEnd(){
+    public T peekLast(){
 	return queue.get(size-1);
     }
 
-    public void addFront(T q){
+    public void addFirst(T q){
 	if(maxSize==-1 || maxSize>size){
 	    queue.add(0, q);
 	    size++;
 	}
     }
 
-    public void addEnd(T q){
+    public void addLast(T q){
 	if(maxSize==-1 || maxSize>size){
 	    queue.add(q);
 	    size++;
 	}
     }
 
-    public T removeFront(){
+    public T removeFirst(){
+	if ( size == 0 ){
+	    System.out.println("There are no elements");
+	    return null;
+	}	
 	T q = queue.get(0);
 	queue.remove(0);
 	size--;
 	return q;
     }
 
-    public T removeEnd(){
-	T q = queue.get(size-1);
-	queue.remove(size-1);
-	size--;
-	return q;
+    public T removeLast(){
+	if ( size == 0 ){
+	    System.out.println("There are no elements");
+	    return null;
+	}
+	else{
+	    T q = queue.get(size-1);
+	    queue.remove(size-1);
+	    size--;
+	    return q;
+	}
     }
 
     public int size(){
@@ -76,7 +86,7 @@ public class Deck<T> implements Deque<T>{
 	return -1;
     }
 	
-    public void removeFirst(T q){
+    public void removeFirstOccurrence(T q){
 	int x = this.atIndex(q);
 	if(x != -1){
 	    queue.remove(x);
@@ -84,7 +94,7 @@ public class Deck<T> implements Deque<T>{
 	}
     }
 	
-    public void removeLast(T q){
+    public void removeLastOccurrence(T q){
 	for(int w = size-1; w > -1; w--){
 	    if(queue.get(w).equals(q)){
 		queue.remove(w);
@@ -95,21 +105,21 @@ public class Deck<T> implements Deque<T>{
 		
     }
 	
-    public T pollFront(){
+    public T pollFirst(){
 	if(size == 0){
 	    return null;
 	}
 	else{
-	    return this.removeFront();
+	    return this.removeFirst();
 	}
     }
 	
-    public T pollEnd(){
+    public T pollLast(){
 	if(size == 0){
 	    return null;
 	}
 	else{
-	    return this.removeEnd();
+	    return this.removeLast();
 	}
     }
 
@@ -119,56 +129,6 @@ public class Deck<T> implements Deque<T>{
 	    q+= w + ", ";
 	}
 	return q;
-    }
-	
-    public static void main (String[] args){
-		
-	Deck w = new Deck(5);
-	w.addFront(2);
-	w.addFront(4);
-	w.addEnd(5);
-	w.addEnd(7);
-	w.addEnd(8);
-	System.out.println(w);
-		
-	w.addFront(1);
-	System.out.println(w);
-	w.addEnd(0);
-	System.out.println(w);
-		
-	Deck q = new Deck();
-	q.addFront("w");
-	q.addFront("e");
-	q.addFront("r");
-	q.addEnd("T");
-	q.addEnd("y");
-	q.addEnd("w");
-	q.addEnd("e");
-		
-	System.out.println(q.size());
-		
-	System.out.println(q);
-	q.removeFirst("w");
-	System.out.println(q);
-	q.removeLast("e");
-		
-	System.out.println(q);
-		
-	System.out.println(q.atIndex("v"));
-	System.out.println(q.atIndex("w"));
-		
-	System.out.println(q.contains("v"));
-	System.out.println(q.contains("w"));
-		
-	System.out.println(q.removeFront() + "...r");
-	System.out.println(q.removeEnd() + "...y");
-	System.out.println(q.removeEnd() + "...T");
-	System.out.println(q.pollEnd() + "...w");
-	System.out.println(q.pollFront() + "...e");
-	System.out.println(q.size());
-
-	System.out.println(q.pollFront());
-	System.out.println(q.pollEnd());
     }
     
 }

@@ -107,7 +107,7 @@ public class Deck<T> implements Deque<T>{
 		
     }
 	
-    public T pollFirst(){
+    public T pollFirst(){ //error-handling for removeFirst()
 	if(size == 0){
 	    return null;
 	}
@@ -115,8 +115,8 @@ public class Deck<T> implements Deque<T>{
 	    return this.removeFirst();
 	}
     }
-	
-    public T pollLast(){
+	 
+    public T pollLast(){ //error-handling for removeLast()
 	if(size == 0){
 	    return null;
 	}

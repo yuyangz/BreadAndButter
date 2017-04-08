@@ -126,7 +126,7 @@ public class Deck<T> implements Deque<T>{
     public String toString(){
 	String q = "";
 	for(T w : queue){
-	    q+= w + ", ";
+	    q += w + ", ";
 	}
 	return q;
     }
